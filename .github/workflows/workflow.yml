@@ -24,7 +24,7 @@ jobs:
       with:
      # env:
       # GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-      # token_format: 'access_token'
+       token_format: 'access_token'
        workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
        service_account: 'github-sa@mydev-22.iam.gserviceaccount.com'
 
