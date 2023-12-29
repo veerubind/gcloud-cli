@@ -1,21 +1,21 @@
 jobs:
- job_id:
+  job_id:
     # Add "id-token" with the intended permissions.
-    permissions:
+     permissions:
       contents: 'read'
       id-token: 'write'
 
-    steps:
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
+     steps:
+     - id: 'auth'
+       uses: 'google-github-actions/auth@v2'
+       with:
          workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
          service_account: 'github-sa@mydev-22.iam.gserviceaccount.com'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v2'
-      with:
-         version: '>= 363.0.0
-    
-    - name: 'Use gcloud CLI'
-      run: 'gcloud info'
+     - name: 'Set up Cloud SDK'
+       uses: 'google-github-actions/setup-gcloud@v2'
+       with:
+         version: '>= 363.0.0'
+
+     - name: 'Use gcloud CLI'
+       run: 'gcloud info'
