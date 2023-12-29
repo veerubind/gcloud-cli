@@ -35,3 +35,6 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
+
+    - name: 'gsutil commands'
+      run: 'gsutil ls gs://veer-test-bucket-22'
