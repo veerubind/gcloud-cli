@@ -1,21 +1,32 @@
-jobs:       
-  name: GCLOUD-CLI
-    permissions:
-      contents: 'read'
-      pages: write
-      id-token: 'write'
-      
-    steps:
-      - id: 'auth'
-        uses: 'google-github-actions/auth@v2'
-        with:
+name: 'Terraform CI'
+
+ # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+       contents: read
+       pages: write
+       id-token: write
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:  
+  job_id:
+   name: GCLOUD-CLI
+   runs-on: ubuntu-latest
+
+   steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
          workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
          service_account: 'github-sa@mydev-22.iam.gserviceaccount.com'
 
-      - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v2'
-        with:
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+      with:
          version: '>= 363.0.0'
 
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
