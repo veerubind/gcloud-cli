@@ -36,6 +36,9 @@ jobs:
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
 
+    - name: 'gcloud login'
+      run: 'gcloud auth login'
+
     - name: 'gcloud commands'
       run: 'gcloud projects list'
 
